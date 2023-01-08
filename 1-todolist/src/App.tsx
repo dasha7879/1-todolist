@@ -10,11 +10,16 @@ function App() {
         {id:2, title:"css", isDone:true},
         {id:3, title:"js", isDone:false}
     ]
+    const tasks_2: Array<TaskType> = [
+        {id:1, title:"Eggs", isDone:true},
+        {id:2, title:"Milk", isDone:true},
+        {id:3, title:"Cheese", isDone:false}
+    ]
 
     return (
         <div className="App">
             <TodoList title = {todoListTitle_1} tasks = {tasks_1}/>
-            {/* <TodoList title = {todoListTitle_2} tasks = {tasks_1} /> */}
+            <TodoList title = {todoListTitle_2} tasks = {tasks_2} />
         </div>
     );
 }
