@@ -1,7 +1,9 @@
 import React from 'react';
 import {FilterValuesType} from './App';
+import { Button } from './Button';
+import { DeleteButton } from './DeleteButton';
 
-type TaskType = {
+export type TaskType = {
     id: number
     title: string
     isDone: boolean
@@ -12,9 +14,13 @@ type PropsType = {
     tasks: Array<TaskType>
     removeTask: (taskId: number) => void
     changeFilter: (value: FilterValuesType) => void
+    removeAllTasks: ()=> void
 }
 
 export function Todolist(props: PropsType) {
+
+   
+
     return <div>
         <h3>{props.title}</h3>
         <div>
@@ -31,7 +37,12 @@ export function Todolist(props: PropsType) {
             }
         </ul>
         <div>
-            <button onClick={ () => { props.changeFilter("all") } }>
+            <DeleteButton name='DELETE ALL TASKS' callBack={props.removeAllTasks} />
+            <Button  name='all' callBack={props.changeFilter}/>
+            <Button  name='active' callBack={props.changeFilter}/>
+            <Button  name='completed' callBack={props.changeFilter}/>
+            {/* <Button  name='DELETE ALL TASKS' callBack={props.removeTask}/> */}
+            {/* <button onClick={ () => { props.changeFilter("all") } }>
                 All
             </button>
             <button onClick={ () => { props.changeFilter("active") } }>
@@ -39,7 +50,7 @@ export function Todolist(props: PropsType) {
             </button>
             <button onClick={ () => { props.changeFilter("completed") } }>
                 Completed
-            </button>
+            </button>  */}
         </div>
     </div>
 }
