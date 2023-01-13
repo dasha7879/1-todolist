@@ -39,6 +39,12 @@ export function Todolist(props: PropsType) {
         let filteredTasks = props.tasks.filter(t => t.id != id);
         props.setTasks(filteredTasks);
     }
+    function displayThreeTasks(tasks: TaskType[]) {
+        let firstThreeTasks = props.tasks.filter(t => t.id <= 3);
+        props.setTasks(firstThreeTasks);
+    }
+
+  
 
     function  removeAllTasks() {
         props.setTasks([]);
@@ -68,6 +74,7 @@ export function Todolist(props: PropsType) {
             <Button  name='all' callBack={changeFilter}/>
             <Button  name='active' callBack={changeFilter}/>
             <Button  name='completed' callBack={changeFilter}/>
+            <Button  name='First three' callBack={()=>displayThreeTasks(props.tasks)}/>
             {/* <Button  name='DELETE ALL TASKS' callBack={props.removeTask}/> */}
             {/* <button onClick={ () => { props.changeFilter("all") } }>
                 All

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 
-export type FilterValuesType = "all" | "active" | "completed" | 'DELETE ALL TASKS';
+export type FilterValuesType = "all" | "active" | "completed" | 'DELETE ALL TASKS'| 'First three';
 
 //Hi guys!
 //1. Let's create a 'DELETE ALL TASKS' button, and place it above the filter buttons
