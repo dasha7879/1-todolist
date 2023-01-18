@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
+import { Button } from './Button';
 
 type TodoListPropsType = {
     title: string
@@ -50,14 +51,8 @@ export const TodoList = (props: TodoListPropsType) => {
         }
     }
 
-    const changeFilterAll= ()=>{
-        props.changeFilter('all') 
-    }
-    const changeFilterActive = ()=>{
-        props.changeFilter('active')
-    }
-    const changeFilterCopmlited = ()=>{
-        props.changeFilter('complited')
+    const onChangeFilterHandler= (buttonName: FilterValuesType)=>{
+        props.changeFilter(buttonName) 
     }
 
     return (
@@ -76,9 +71,9 @@ export const TodoList = (props: TodoListPropsType) => {
                     {tasksList}
                 </ul>
                 <div>
-                    <button onClick={changeFilterAll}>All</button>
-                    <button onClick={changeFilterActive}>Active</button>
-                    <button onClick={changeFilterCopmlited}>Completed</button>
+                    <Button name= 'all' callback={()=>{onChangeFilterHandler('all')}} />
+                    <Button name= 'active' callback={()=>{onChangeFilterHandler('active')}} />
+                    <Button name= 'complited' callback={()=>{onChangeFilterHandler('complited')}} />
                 </div>
             </div>
         </>
